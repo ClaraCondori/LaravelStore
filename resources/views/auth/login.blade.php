@@ -1,72 +1,69 @@
-<!doctype html>
-<html lang="en">
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<!DOCTYPE html>
+<html>
 <head>
-        <title>Login</title>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>INICIAR SESION</title>
+   <!--Made with love by Mutiullah Samim -->
+   
+	<!--Bootsrap 4 CDN-->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    
+    <!--Fontawesome CDN-->
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 
-    <!-- Bootstrap CSS v5.2.1 -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-    <link rel="stylesheet" href="{{asset('assets/estilos.css')}}">
-
+	<!--Custom styles-->
+	<link rel="stylesheet" type="text/css" href="{{ asset('assets/styles.css') }}">
 </head>
-
 <body>
-<section class="vh-100">
-    <div class="container-fluid">
-    <div class="row">
-        <div class="col-sm-6 text-black">
-
-        <div class="px-5 ms-xl-4">
-            <i class="fas fa-crow fa-2x me-3 pt-5 mt-xl-4" style="color: #709085;"></i>
-            <span class="h1 fw-bold mb-0">STORE LOGIN</span>
-        </div>
-
-        <div class="d-flex align-items-center h-custom-2 px-5 ms-xl-4 mt-5 pt-5 pt-xl-0 mt-xl-n5">
-
-            <form action="{{route('login')}}" method="POST" style="width: 23rem;">
-            @csrf 
-
-            <h3 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Iniciar sesión</h3>
-            <div class="form-outline mb-4">
-            <label class="form-label" for="form2Example18" name="correo">Correo</label>
-                <input type="email" id="form2Example18" class="form-control form-control-lg" />
-            </div>
-            <div class="form-outline mb-4">
-            <label class="form-label" for="form2Example28" name="contra">Contraseña</label>
-                <input type="password" id="form2Example28" class="form-control form-control-lg" />
-                
-            </div>
-
-            <div class="pt-1 m">
-                <button class="btn btn-info btn-lg btn-block" type="button">Ingresar</button>
-            </div>
-
-            <p class="small mb-5 pb-lg-2"><a class="text-muted" href="#!">¿Olvidaste tu contraseña?</a></p>
-            <p>¿No tienes una cuenta? <a href="{{route('register')}}" class="link-info">Registrate aquí</a></p>
-
-            </form>
-
-        </div>
-
-        </div>
-        <div class="col-sm-6 px-0 d-none d-sm-block">
-        <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/img3.webp"
-            alt="Login image" class="w-100 vh-100" style="object-fit: cover; object-position: left;">
-        </div>
-    </div>
-    </div>
-</section>
-    <!-- Bootstrap JavaScript Libraries -->
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
-    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
-    </script>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
-    integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
-    </script>
+<div class="container">
+	<div class="d-flex justify-content-center h-100">
+		<div class="card">
+			<div class="card-header">
+				<h3>Ingresar</h3>
+				<div class="d-flex justify-content-end social_icon">
+					<span><i class="fab fa-facebook-square"></i></span>
+					<span><i class="fab fa-google-plus-square"></i></span>
+					<span><i class="fab fa-twitter-square"></i></span>
+				</div>
+			</div>
+			<div class="card-body">
+				<form  action="{{ route('login') }}" method="POST">
+                @csrf
+					<div class="input-group form-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text"><i class="fas fa-user"></i></span>
+						</div>
+						<input type="email" class="form-control" placeholder="correo" name="email">
+						
+					</div>
+					<div class="input-group form-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text"><i class="fas fa-key"></i></span>
+						</div>
+						<input type="password" class="form-control" placeholder="contraseña" name="password">
+					</div>
+					<div class="row align-items-center remember">
+						<input type="checkbox">Recuerdame
+					</div>
+					<div class="form-group">
+						<input type="submit" value="Ingresar" class="btn float-right login_btn">
+					</div>
+				</form>
+			</div>
+			<div class="card-footer">
+				<div class="d-flex justify-content-center links">
+					¿No tienes una cuenta?<a href="#">Registrate</a>
+				</div>
+				<div class="d-flex justify-content-center">
+					<a href="#">¿Olvidaste tu contraseña?</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
 </body>
-
 </html>
